@@ -1,4 +1,4 @@
-import expect from 'expect';
+import test from 'ava';
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import TestUtils from 'react-addons-test-utils';
@@ -11,18 +11,18 @@ function setup(saving) {
 	return shallow(<CourseForm {...props} />);
 }
 
-describe('CourseForm via React Test Utils', () => {
-	it('renders form and h1', () => {
-		const wrapper = setup(false);
-		expect(wrapper.find('form').length).toBe(1);
-		expect(wrapper.find('h1').text()).toEqual('Manage Course');
-	});
-	it('save button is labeled "Save" when not saving', () => {
-		const wrapper = setup(false);
-		expect(wrapper.find('input').props().value).toBe('Save');
-	});
-	it('save button is labeled "Saving..." when saving', () => {
-		const wrapper = setup(true);
-		expect(wrapper.find('input').props().value).toBe('Saving...');
-	});
+test('renders form and h1', t => {
+	const wrapper = setup(false);
+	t.is(wrapper.find('form').length, 1);
+	t.is(wrapper.find('h1').text(), 'Manage Course');
+});
+
+test('save button is labeled "Save" when not saving', t => {
+	const wrapper = setup(false);
+	t.is(wrapper.find('input').props().value, 'Save');
+});
+
+test('save button is labeled "Saving..." when saving', t => {
+	const wrapper = setup(true);
+	t.is(wrapper.find('input').props().value, 'Saving...');
 });
