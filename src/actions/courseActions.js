@@ -1,22 +1,20 @@
 import courseApi from '../api/mockCourseApi';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 
-export const types = {
-	LOAD_COURSES_SUCCESS: 'LOAD_COURSES_SUCCESS',
-	CREATE_COURSE_SUCCESS: 'CREATE_COURSE_SUCCESS',
-	UPDATE_COURSE_SUCCESS: 'UPDATE_COURSE_SUCCESS'
-};
+export const LOAD_COURSES_SUCCESS = 'LOAD_COURSES_SUCCESS';
+export const CREATE_COURSE_SUCCESS = 'CREATE_COURSE_SUCCESS';
+export const UPDATE_COURSE_SUCCESS = 'UPDATE_COURSE_SUCCESS';
 
 export function loadCoursesSuccess(courses) {
-	return { type: types.LOAD_COURSES_SUCCESS, courses };
+	return { type: LOAD_COURSES_SUCCESS, courses };
 }
 
 export function createCourseSuccess(course) {
-	return { type: types.CREATE_COURSE_SUCCESS, course};
+	return { type: CREATE_COURSE_SUCCESS, course};
 }
 
 export function updateCourseSuccess(course) {
-	return { type: types.UPDATE_COURSE_SUCCESS, course};
+	return { type: UPDATE_COURSE_SUCCESS, course};
 }
 
 export function loadCourses() {

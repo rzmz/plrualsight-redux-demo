@@ -1,12 +1,10 @@
 import authorApi from '../api/mockAuthorApi';
 import { beginAjaxCall } from './ajaxStatusActions';
 
-export const types = {
-	LOAD_AUTHORS_SUCCESS: 'LOAD_AUTHORS_SUCCESS'
-};
+export const LOAD_AUTHORS_SUCCESS = 'LOAD_AUTHORS_SUCCESS';
 
 export function loadAuthorsSuccess(authors) {
-	return { type: types.LOAD_AUTHORS_SUCCESS, authors };
+	return { type: LOAD_AUTHORS_SUCCESS, authors };
 }
 
 export function loadAuthors() {
