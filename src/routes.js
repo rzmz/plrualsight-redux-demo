@@ -6,12 +6,21 @@ import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage'; // eslint-disable-line import/no-named-as-default
 
-export default (
-	<Route path="/" component={App}>
+const routes = (
+	<Route>
 		<IndexRoute component={HomePage} />
 		<Route path="about" component={AboutPage} />
 		<Route path="courses" component={CoursesPage} />
 		<Route path="course" component={ManageCoursePage} />
 		<Route path="course/:id" component={ManageCoursePage} />
+	</Route>
+);
+
+export default (
+	<Route name="app" path="/" component={App}>
+		{routes}
+		<Route path=":language">
+			{routes}
+		</Route>
 	</Route>
 );
